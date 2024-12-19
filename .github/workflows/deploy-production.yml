@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to Production Instance
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@52.62.178.216"
+          ssh -o StrictHostKeyChecking=no ubuntu@52.62.178.216 "
             cd ~/production/custom/addons &&
             git pull origin production &&
             cd ~/../.. &&
