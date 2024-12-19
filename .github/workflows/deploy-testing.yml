@@ -23,7 +23,7 @@ jobs:
       # Deploy to testing instance
       - name: Deploy to Testing Instance
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ip-172-31-10-14 "
+          ssh -o StrictHostKeyChecking=no ubuntu@52.62.178.216"
             cd ~/testing/custom/addons &&
             git pull origin testing &&
             docker restart testing_odoo_18
