@@ -1,0 +1,30 @@
+name: Deploy to Testing
+
+on:
+  push:
+    branches:
+      - testing
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up SSH agent and add private key
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Deploy to testing instance
+      - name: Deploy to Testing Instance
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@ip-172-31-10-14 "
+            cd ~/testing/custom/addons &&
+            git pull origin testing &&
+            docker restart testing_odoo_18
+          "
