@@ -23,5 +23,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ubuntu@52.62.178.216"
             cd ~/staging/custom/addons &&
             git pull origin staging &&
-            docker restart staging_odoo_18
+            cd ~/../.. &&
+            sudo docker restart staging_odoo_18
           "

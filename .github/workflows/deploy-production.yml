@@ -23,5 +23,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ubuntu@52.62.178.216"
             cd ~/production/custom/addons &&
             git pull origin production &&
-            docker restart prod_odoo_18
+            cd ~/../.. &&
+            sudo docker restart prod_odoo_18
           "
